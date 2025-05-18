@@ -1,0 +1,4 @@
+*.txt
+
+/Input/*
+/temp/*

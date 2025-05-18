@@ -1,0 +1,16 @@
+
+{
+    "stim_num": 20,
+    "stim_duration": 4.0,
+    "isi": 6.0,
+    "stim_size": 600,
+    "stim_freq": 2.0,
+    "stim_contrast": 1.0,
+    "stim_phase": 0.0,
+    "stim_eccentricity": 2.0,
+    "orientations": [0, 45, 90, 135, 180, 225, 270, 315],
+    "bg_color": [128, 128, 128],
+    "drift_speed": 0.0,
+    "play_mode": "sequential",
+    "fullscreen": false
+} 
