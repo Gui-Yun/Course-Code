@@ -55,6 +55,11 @@ else:
         json.dump(config, f, ensure_ascii=False, indent=4)
     print(f"未检测到config.json，已生成默认配置文件。请根据需要修改后重新运行。")
 
+# ========== 方块参数 ==========
+SQUARE_SIZE = 20  # 方块大小
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
 # ========== TODO 2: 修改下方参数以适应你的实验需求 ==========
 # 注意 这里只是注释，真正修改请在config.json中修改
 # stim_num：每种朝向的刺激个数
@@ -152,6 +157,9 @@ pygame.display.set_caption("Orientation Grating Stimuli")
 
 # 初始灰色背景
 screen.fill(bg_color)
+# 绘制黑色方块
+square_pos = (win_size[0] - SQUARE_SIZE, win_size[1] - SQUARE_SIZE)
+pygame.draw.rect(screen, BLACK, (*square_pos, SQUARE_SIZE, SQUARE_SIZE))
 pygame.display.flip()
 print(f"初始灰色背景 {2} 秒")
 time.sleep(2)
@@ -170,6 +178,8 @@ for idx, ori in enumerate(stimuli_sequence):
         rect = surf.get_rect(center=(win_size[0]//2, win_size[1]//2))
         screen.fill(bg_color)
         screen.blit(surf, rect)
+        # 绘制白色方块
+        pygame.draw.rect(screen, WHITE, (*square_pos, SQUARE_SIZE, SQUARE_SIZE))
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -180,6 +190,8 @@ for idx, ori in enumerate(stimuli_sequence):
     # 刺激间隔
     if idx < len(stimuli_sequence) - 1:
         screen.fill(bg_color)
+        # 绘制黑色方块
+        pygame.draw.rect(screen, BLACK, (*square_pos, SQUARE_SIZE, SQUARE_SIZE))
         pygame.display.flip()
         print(f"刺激间隔{isi}秒\n")
         t1 = time.time()
